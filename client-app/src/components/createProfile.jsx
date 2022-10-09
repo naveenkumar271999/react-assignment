@@ -20,7 +20,7 @@ export function CreateProfile() {
 
         console.log({profile});
         axios
-            .post("http://localhost:8000/api/profile", data)
+            .post("http://13.59.171.192:8000/api/profile", data)
             .then((res)  => {
                 setData({name: "", description: ""});
                 console.log(res.data.message);

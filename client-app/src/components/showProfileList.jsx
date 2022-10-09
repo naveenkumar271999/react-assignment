@@ -28,7 +28,7 @@ export function ShowProfileList() {
     useEffect(
         function () {
             axios
-                .get("http://localhost:8000/api/profile")
+                .get("http://13.59.171.192:8000/api/profile")
                 .then((res) => {
                     console.log(res.data);
                     setProfile(res.data);
@@ -51,7 +51,7 @@ export function ShowProfileList() {
     }
 
     function handleDelete(e) {
-        axios.delete(`http://localhost:8000/api/profile/${e.target.name}`);
+        axios.delete(`http://13.59.171.192:8000/api/profile/${e.target.name}`);
 
         setProfile((data) => {
             return data.filter((profile) => profile._id !== e.target.name);
