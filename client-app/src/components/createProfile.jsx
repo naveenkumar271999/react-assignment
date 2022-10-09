@@ -40,29 +40,39 @@ export function CreateProfile() {
                     className="form-container"
                     noValidate
                 >
-                    <label className="label" htmlFor="name">
-                        Name
-                    </label>
-                    <input
-                        type="text"
-                        name="name"
-                        value={data.name}
-                        onChange={handleChange}
-                        className="input"
-                    />
-                    <label className="label" htmlFor="description">
-                        Description
-                    </label>
-                    <input
-                        type="text"
-                        name="description"
-                        value={data.description}
-                        onChange={handleChange}
-                        className="input"
-                    />
-                    <button type="submit" className="button">
-                        create profile
-                    </button>
+                    <div>
+                        <label className="label" htmlFor="name">
+                            Name
+                        </label>
+                        <input
+                            type="text"
+                            name="name"
+                            value={data.name}
+                            onChange={handleChange}
+                            className="input"
+                        />
+                    </div>
+                    <div>
+                        <div>
+                        <label className="label" htmlFor="description">
+                            Description
+                        </label>
+                        </div>
+                        <div>
+                        <textarea
+                            type="text"
+                            name="description"
+                            value={data.description}
+                            onChange={handleChange}
+                            className="input"
+                        />
+                        <div>
+                        <button type="submit" className="button">
+                            create profile
+                        </button>
+                        </div>
+                        </div>
+                    </div>
                 </form>
             </section>
         </section>
