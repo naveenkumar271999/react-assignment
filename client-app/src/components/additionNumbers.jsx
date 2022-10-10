@@ -17,7 +17,6 @@ export function AdditionNumbers ()  {
         }
     
     return (
-      
             <>
             <input type="text" id="first" value={first} onChange={(e) =>{setFirst(e.target.value)} } />
             <input type="text" id="second" onChange={(e) =>{setSecond(e.target.value)} }/>
