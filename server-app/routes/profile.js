@@ -7,6 +7,7 @@ const {
     postCreateProfile,
     putUpdateProfile,
     deleteProfile,
+    addTwoNumber,
 } = require("../controllers/profile");
 
 /**
@@ -16,6 +17,7 @@ const {
  */
 router.get("/", getAllProfile);
 
+router.post("/addNumber",addTwoNumber);
 /**
  * @route POST api/profile
  * @description add a new profile

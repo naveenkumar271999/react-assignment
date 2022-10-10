@@ -20,7 +20,7 @@ export function CreateProfile() {
 
         console.log({profile});
         axios
-            .post("http://13.59.171.192:8000/api/profile", data)
+            .post("http://localhost:8000/api/profile", data)
             .then((res)  => {
                 setData({name: "", description: ""});
                 console.log(res.data.message);
@@ -35,45 +35,56 @@ export function CreateProfile() {
                 </button>
             </Link>
             <section className="contents">
-                <form
-                    onSubmit={handleSubmit}
-                    className="form-container"
-                    noValidate
-                >
-                    <div>
-                        <label className="label" htmlFor="name">
-                            Name
-                        </label>
-                        <input
-                            type="text"
-                            name="name"
-                            value={data.name}
-                            onChange={handleChange}
-                            className="input"
-                        />
-                    </div>
-                    <div>
-                        <div>
-                        <label className="label" htmlFor="description">
-                            Description
-                        </label>
+            <div style={{display:"flex", flexDirection:"row"}}>
+                <div>
+                    <img height='300px' width='300px' url=""/>
+                </div>
+                <div style={{width:'100%'}}>
+                    <form
+                        onSubmit={handleSubmit}
+                        className="form-container"
+                        noValidate
+                        style={{width:'100%'}}
+                    >
+                        <div style={{width:'100%'}}>
+                            <label className="label" htmlFor="name">
+                                Name
+                            </label>
+                            <input
+                                type="text"
+                                name="name"
+                                value={data.name}
+                                onChange={handleChange}
+                                className="input"
+                                style={{width:'100%'}}
+                            />
                         </div>
                         <div>
-                        <textarea
-                            type="text"
-                            name="description"
-                            value={data.description}
-                            onChange={handleChange}
-                            className="input"
-                        />
-                        <div>
-                        <button type="submit" className="button">
-                            create profile
-                        </button>
+                            <div>
+                            <label className="label" htmlFor="description">
+                                Description
+                            </label>
+                            </div>
+                            <div>
+                            <textarea
+                                type="text"
+                                name="description"
+                                value={data.description}
+                                onChange={handleChange}
+                                className="input"
+                                style={{width:'100%', height:'200px'}}
+                            />
+                            
+                            <div>
+                            <button type="submit" className="button">
+                                create profile
+                            </button>
+                            </div>
+                            </div>
                         </div>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
+                </div>
             </section>
         </section>
     );

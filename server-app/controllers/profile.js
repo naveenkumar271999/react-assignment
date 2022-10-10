@@ -9,7 +9,12 @@ exports.getAllProfile = (req, res) => {
                 .json({ message: "Profile not found", error: err.message })
         );
 };
-
+exports.addTwoNumber = (req, res) => {
+    console.log("--------------------------------");
+    console.log(req.body.first)
+    const sum = Number(req.body.first)+ Number(req.body.second)
+    res.json({result:sum});
+};
 exports.postCreateProfile = (req, res) => {
     Profile.create(req.body)
         .then((data) => res.json({ message: "Profile added successfully", data }))

@@ -14,7 +14,7 @@ export function UpdateProfile({ _id, handleClose, handleEdited }) {
         console.log({ _id }, { data });
 
         axios
-            .put(`http://13.59.171.192:8000/api/profile/${_id}`, data)
+            .put(`http://localhost:8000/api/profile/${_id}`, data)
             .then((res) => {
                 setData({ name: "", description: "" });
                 console.log(res.data.message);

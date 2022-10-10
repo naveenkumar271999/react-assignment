@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { UpdateProfile } from "./updateProfile"
+import { Lightbox } from 'react-image-lightbox';
 
 function ProfileCard({data, handleEdit, handleDelete}) {
     const {_id, name, description} = data;
@@ -28,7 +29,7 @@ export function ShowProfileList() {
     useEffect(
         function () {
             axios
-                .get("http://13.59.171.192:8000/api/profile")
+                .get("http://localhost:8000/api/profile")
                 .then((res) => {
                     console.log(res.data);
                     setProfile(res.data);
@@ -51,7 +52,7 @@ export function ShowProfileList() {
     }
 
     function handleDelete(e) {
-        axios.delete(`http://13.59.171.192:8000/api/profile/${e.target.name}`);
+        axios.delete(`http://localhost:8000/api/profile/${e.target.name}`);
 
         setProfile((data) => {
             return data.filter((profile) => profile._id !== e.target.name);
@@ -65,38 +66,42 @@ export function ShowProfileList() {
 
     return (
         <section className="container">
-            <Link to="/create-profile" className="button-new">
-                <button className="button">New</button>
-            </Link>
-            <section className="contents">
-                <h1>Profile</h1>
-                <ul className="list-container">
-                    {profile.map((data) => (
-                        <ProfileCard
-                            data={data}
-                            handleEdit={handleEdit}
-                            handleDelete={handleDelete}
-                        />
-                    ))}
-                </ul>
-            </section>
-            {open ? (
-                <section className="update-container">
-                    <div className="update-contents">
-                        <p onClick={handleClose} className="close">
-                            &times;
-                        </p>
 
-                        <UpdateProfile
-                            _id={id}
-                            handleClose={handleClose}
-                            handleUpdate={handleUpdate}
-                        />
-                    </div>
-                </section>
-            ) : (
-                ""
-            )}
+                <div>
+                    <Link to="/create-profile" className="button-new">
+                        <button className="button">New</button>
+                    </Link>
+                    <section className="contents">
+
+                        <h1>Profile</h1>
+                        <ul className="list-container">
+                            {profile.map((data) => (
+                                <ProfileCard
+                                    data={data}
+                                    handleEdit={handleEdit}
+                                    handleDelete={handleDelete}
+                                />
+                            ))}
+                        </ul>
+                    </section>
+                    {open ? (
+                        <section className="update-container">
+                            <div className="update-contents">
+                                <p onClick={handleClose} className="close">
+                                    &times;
+                                </p>
+
+                                <UpdateProfile
+                                    _id={id}
+                                    handleClose={handleClose}
+                                    handleUpdate={handleUpdate}
+                                />
+                            </div>
+                        </section>
+                    ) : (
+                        ""
+                    )}
+                </div>
         </section>
     );
 }
